@@ -1,0 +1,22 @@
+{
+    "name": "tymeshift/php-test",
+    "description": "Test for PHP backend developers",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Tymeshift\\PhpTest\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Luka Macun",
+            "email": "luka@tymeshift.com"
+        }
+    ],
+    "require-dev": {
+        "codeception/codeception": "^4.1",
+        "mockery/mockery": "^1.4",
+        "codeception/module-phpbrowser": "^1.0.0",
+        "codeception/module-asserts": "^1.3"
+    }
+}
