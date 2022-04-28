@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Tymeshift\PhpTest\Domains\Schedule;
 
+use DateTime;
+
 interface ScheduleItemInterface
 {
     /**
@@ -11,14 +13,14 @@ interface ScheduleItemInterface
     public function getScheduleId():int;
 
     /**
-     * @return int
+     * @return DateTime
      */
-    public function getStartTime():int;
+    public function getStartTime():DateTime;
 
     /**
-     * @return int
+     * @return DateTime
      */
-    public function getEndTime():int;
+    public function getEndTime():DateTime;
 
     /**
      * @return string

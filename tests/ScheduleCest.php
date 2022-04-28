@@ -41,7 +41,6 @@ class ScheduleCest
     public function testGetByIdSuccess(Example $example, \UnitTester $tester)
     {
         ['id' => $id, 'start_time' => $startTime, 'end_time' => $endTime, 'name' => $name] = $example;
-        $data = ['id' => $id, 'start_time' => $startTime, 'end_time' => $endTime, 'name' => $name];
 
         $this->scheduleStorageMock
             ->shouldReceive('getById')
@@ -63,7 +62,8 @@ class ScheduleCest
             ->shouldReceive('getById')
             ->with(4)
             ->andReturn([]);
-        $tester->expectThrowable(StorageDataMissingException::class, function () {
+
+        $tester->expectThrowable(new StorageDataMissingException("Schedule not found.", 404), function () {
             $this->scheduleRepository->getById(4);
         });
     }

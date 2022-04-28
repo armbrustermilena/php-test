@@ -4,9 +4,9 @@ declare(strict_types=1);
 namespace Tymeshift\PhpTest\Domains\Schedule;
 
 use DateTime;
-use Tymeshift\PhpTest\Interfaces\EntityInterface;
+use Tymeshift\PhpTest\Components\Entity;
 
-class ScheduleEntity implements EntityInterface
+class ScheduleEntity extends Entity
 {
     /**
      * @var int
@@ -102,6 +102,23 @@ class ScheduleEntity implements EntityInterface
     public function setEndTime(DateTime $endTime): ScheduleEntity
     {
         $this->endTime = $endTime;
+        return $this;
+    }
+    /**
+     * @return ScheduleItemInterface[]
+     */
+    public function getItems(): array
+    {
+        return $this->items;
+    }
+
+    /**
+     * @param array $items
+     * @return ScheduleEntity
+     */
+    public function setItems(array $items): ScheduleEntity
+    {
+        $this->items = $items;
         return $this;
     }
 }

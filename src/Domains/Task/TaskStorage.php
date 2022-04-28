@@ -14,13 +14,19 @@ class TaskStorage
         $this->client = $httpClient;
     }
 
-    public function getByScheduleId(int $id): array
+    public function getByScheduleId(int $scheduleId): array
     {
+        return $this->client->request("GET", "schedules/$scheduleId/tasks");
+    }
 
+    public function getById(int $taskId): array
+    {
+        return $this->client->request("GET", "tasks/$taskId");
     }
 
     public function getByIds(array $ids): array
     {
-        // TODO: Implement getByIds() method.
+        $idsString = implode(",", $ids);
+        return $this->client->request("GET", "tasks?id=$idsString");
     }
 }
